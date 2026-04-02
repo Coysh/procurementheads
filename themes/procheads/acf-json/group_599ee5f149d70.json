@@ -1,0 +1,47 @@
+{
+    "key": "group_599ee5f149d70",
+    "title": "Video Settings",
+    "fields": [
+        {
+            "key": "field_599ee5fe22c0a",
+            "label": "Set Video Width on Testimonial Page",
+            "name": "tst_video_width",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "This is the maximum width the video will expand to.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 640,
+            "placeholder": "",
+            "prepend": "",
+            "append": "px",
+            "min": "",
+            "max": "",
+            "step": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-video"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": false,
+    "description": "",
+    "show_in_rest": false,
+    "modified": 1684969418
+}

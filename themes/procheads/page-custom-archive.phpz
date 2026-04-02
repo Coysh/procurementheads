@@ -1,0 +1,63 @@
+<?php
+/**
+ * The template for displaying archive pages
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ *
+ * @package Astra
+ * @since 1.0.0
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
+get_header(); ?>
+
+<div id="primary" <?php astra_primary_class(); ?>>
+
+	<?php astra_primary_content_top(); ?>
+
+	<?php astra_archive_header(); ?>
+
+	<div class="ast-container">
+
+		<?php 
+		// Get your custom archive page by title
+		$args = array(
+			'name'        => 'custom-archive',
+			'post_type'   => 'page',
+			'post_status' => 'publish',
+			'numberposts' => 1
+		);
+		$pages = get_posts($args);
+
+		// If the page exists
+		if( $pages ){
+			// Display the page content (including Gutenberg blocks)
+			echo apply_filters( 'the_content', $pages[0]->post_content );
+		}
+
+		// The default loop for posts
+		if ( have_posts() ) : 
+			while ( have_posts() ) : the_post(); 
+				get_template_part( 'template-parts/content', get_post_format() );
+			endwhile; 
+
+			the_posts_pagination( array(
+				'mid_size'  => 2,
+				'prev_text' => __( 'Back', 'textdomain' ),
+				'next_text' => __( 'Onward', 'textdomain' ),
+			) );
+		else :
+			get_template_part( 'template-parts/content', 'none' );
+		endif;
+		?>
+
+	</div><!-- .ast-container -->
+
+	<?php astra_primary_content_bottom(); ?>
+
+</div><!-- #primary -->
+
+<?php get_footer(); ?>

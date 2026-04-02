@@ -1,0 +1,50 @@
+.hubs {
+	min-height: 350px;
+	overflow: hidden;
+}
+
+/* .hubs a {
+	display: block;
+} */
+
+.carousel-cell {
+	width: 100%;
+	min-height: 350px;
+	margin-right: 48px;
+	counter-increment: carousel-cell;
+	margin-bottom: 3rem;
+	position: relative;
+}
+
+@media (min-width: 40em) { 
+	.carousel-cell {
+		width: 350px;
+	}
+}
+
+
+.carousel-cell a {
+	text-decoration: none !important;
+}
+
+/* cell number */
+.carousel-cell:before {
+	display: block;
+	text-align: center;
+	content: "";
+	color: white;
+}
+
+.carousel-cell h3 {
+
+/* position: absolute;
+bottom: 2rem;
+left: 2rem; */
+margin: 2rem 0 0;
+color: #fff;
+}
+
+
+.flickity-button, .flickity-page-dots {
+	display: none;
+}

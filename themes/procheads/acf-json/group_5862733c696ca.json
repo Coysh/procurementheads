@@ -1,0 +1,314 @@
+{
+    "key": "group_5862733c696ca",
+    "title": "Jobs Filtering",
+    "fields": [
+        {
+            "key": "field_586508550f06d",
+            "label": "Filters",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 1
+        },
+        {
+            "key": "field_586288211becf",
+            "label": "Level",
+            "name": "level",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "0": "N\/A",
+                "191": "Lead",
+                "193": "Supervisor",
+                "172": "Graduate",
+                "15": "Analyst",
+                "133": "Buyer",
+                "134": "Senior Buyer",
+                "136": "Consultant",
+                "135": "Specialist",
+                "13": "Manager",
+                "11": "Senior Manager",
+                "51": "Head of",
+                "12": "Director"
+            },
+            "default_value": [],
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_5863a37bb379c",
+            "label": "Contract",
+            "name": "contract",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "multiple": 0,
+            "allow_null": 0,
+            "choices": {
+                "0": "N\/A",
+                "8": "Permanent",
+                "9": "Interim or Contract"
+            },
+            "default_value": [],
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "return_format": "value"
+        },
+        {
+            "key": "field_5863d63f45e80",
+            "label": "Location",
+            "name": "location",
+            "type": "select",
+            "instructions": "'SHIFT' click to add more than one area.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "0": "N\/A",
+                "55": "Berkshire",
+                "147": "Bristol",
+                "145": "Buckinghamshire",
+                "18": "Dorset",
+                "19": "Hampshire",
+                "146": "Hertfordshire",
+                "189": "Kent",
+                "142": "London",
+                "144": "Oxfordshire",
+                "192": "Reading",
+                "21": "Surrey",
+                "141": "Sussex",
+                "143": "Wiltshire"
+            },
+            "default_value": [],
+            "allow_null": 1,
+            "multiple": 1,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_5863c6b5c5af6",
+            "label": "Associate with Salary Scales",
+            "name": "salary_scale",
+            "type": "select",
+            "instructions": "'SHIFT' click to add more than one scale.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "0": "N\/A",
+                "3": "Up to £40k",
+                "6": "£40-60k",
+                "138": "£60-80K",
+                "139": "£80-100k",
+                "140": "£100k+"
+            },
+            "default_value": [],
+            "allow_null": 0,
+            "multiple": 1,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_58831af1f8bb5",
+            "label": "Custom Salary Display",
+            "name": "custom_salary_display",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5871641537819",
+            "label": "Call text",
+            "name": "call_text",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "or call our head office 01962 869838",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_586509222b8ae",
+            "label": "+",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_58638fea270b7",
+            "label": "Add Level",
+            "name": "add_level",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_5863a3a9b379d",
+            "label": "Add Contract",
+            "name": "add_contract",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_5863e08fa7cb0",
+            "label": "Add Location",
+            "name": "add_location",
+            "type": "text",
+            "instructions": "To add a city you must first have a county selected on the 'Location' field. Otherwise a new county will be created.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_586509ee3fe6f",
+            "label": "Instructions",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5864fa7176e77",
+            "label": "Instructions",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "<strong>Filters tab<\/strong>\r\nThese filters are a direct relation to the dropdown filters on the \/jobs page. Setting them will make this job appear when sorted by the respective category.\r\n\r\n<strong>+ tab<\/strong>\r\nIf a selection is not available click the '+' tab and enter the name of the selection in the related 'Add' box and 'update' the job. Your addition will be added and selected as a new option in the related dropdown.\r\n\r\n<strong>Nt: Removing options and Salary scales<\/strong>\r\nFor advanced editing including adding a Salary scales navigate to the Jobs > Jobs Category link on the admin bar. Please be aware this is for advanced users only and has site wide ramifications, contact support if you are unsure what to do.",
+            "esc_html": 0,
+            "new_lines": "wpautop"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "jobs"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "categories"
+    ],
+    "active": 1,
+    "description": "",
+    "modified": 1553601258
+}

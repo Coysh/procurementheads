@@ -1,0 +1,52 @@
+[21-Feb-2021 18:07:51 Europe/London] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/hrheadsco/procurementheads.com/wp-content/themes/procheads/index.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/hrheadsco/procurementheads.com/wp-content/themes/procheads/index.php on line 16
+[08-Nov-2021 05:49:12 Europe/London] PHP Fatal error:  Uncaught Error: Call to undefined function language_attributes() in /home/hrheadsco/procurementheads.com/wp-content/themes/procheads/header.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/hrheadsco/procurementheads.com/wp-content/themes/procheads/header.php on line 13
+[08-Nov-2021 05:49:12 Europe/London] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/hrheadsco/procurementheads.com/wp-content/themes/procheads/404.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/hrheadsco/procurementheads.com/wp-content/themes/procheads/404.php on line 9
+[08-Nov-2021 05:49:12 Europe/London] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/hrheadsco/procurementheads.com/wp-content/themes/procheads/archive.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/hrheadsco/procurementheads.com/wp-content/themes/procheads/archive.php on line 18
+[08-Nov-2021 05:49:12 Europe/London] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/hrheadsco/procurementheads.com/wp-content/themes/procheads/index.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/hrheadsco/procurementheads.com/wp-content/themes/procheads/index.php on line 16
+[24-Nov-2021 19:35:39 Europe/London] PHP Fatal error:  Uncaught Error: Call to undefined function language_attributes() in /home/hrheadsco/procurementheads.com/wp-content/themes/procheads/header.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/hrheadsco/procurementheads.com/wp-content/themes/procheads/header.php on line 13
+[24-Nov-2021 19:35:39 Europe/London] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/hrheadsco/procurementheads.com/wp-content/themes/procheads/404.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/hrheadsco/procurementheads.com/wp-content/themes/procheads/404.php on line 9
+[24-Nov-2021 19:35:39 Europe/London] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/hrheadsco/procurementheads.com/wp-content/themes/procheads/archive.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/hrheadsco/procurementheads.com/wp-content/themes/procheads/archive.php on line 18
+[24-Nov-2021 19:35:39 Europe/London] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/hrheadsco/procurementheads.com/wp-content/themes/procheads/index.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/hrheadsco/procurementheads.com/wp-content/themes/procheads/index.php on line 16
+[27-Nov-2021 19:48:06 Europe/London] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/hrheadsco/procurementheads.com/wp-content/themes/procheads/404.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/hrheadsco/procurementheads.com/wp-content/themes/procheads/404.php on line 9
+[27-Nov-2021 19:48:06 Europe/London] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/hrheadsco/procurementheads.com/wp-content/themes/procheads/archive.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/hrheadsco/procurementheads.com/wp-content/themes/procheads/archive.php on line 18
+[27-Nov-2021 19:48:06 Europe/London] PHP Fatal error:  Uncaught Error: Call to undefined function language_attributes() in /home/hrheadsco/procurementheads.com/wp-content/themes/procheads/header.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/hrheadsco/procurementheads.com/wp-content/themes/procheads/header.php on line 13
+[27-Nov-2021 19:48:06 Europe/London] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/hrheadsco/procurementheads.com/wp-content/themes/procheads/index.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/hrheadsco/procurementheads.com/wp-content/themes/procheads/index.php on line 16

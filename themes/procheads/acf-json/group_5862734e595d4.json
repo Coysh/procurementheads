@@ -1,0 +1,277 @@
+{
+    "key": "group_5862734e595d4",
+    "title": "Jobs Settings",
+    "fields": [
+        {
+            "key": "field_58663a88cd96b",
+            "label": "Head content",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_58663bad15d8c",
+            "label": "Jobs Title",
+            "name": "jobs_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Finding your next job",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_58663bcf15d8d",
+            "label": "Jobs Background Image",
+            "name": "jobs_bk_image",
+            "type": "image",
+            "instructions": "Appears behind the Jobs Title and Blurb",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_58663c3f00424",
+            "label": "Jobs Instruction",
+            "name": "jobs_instruction",
+            "type": "wysiwyg",
+            "instructions": "Appears under the Jobs header before the dropdown filters.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "default_value": "",
+            "delay": 0
+        },
+        {
+            "key": "field_58663a72cd96a",
+            "label": "Dropdowns",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_58663aa3cd96c",
+            "label": "WARNING:",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "These should only be changed if you know what you are doing.\r\nThe jobs section heavily relies on these being set correctly.\r\n\r\nPlease contact support if you require more information.",
+            "esc_html": 0,
+            "new_lines": "wpautop"
+        },
+        {
+            "key": "field_58628b4b78357",
+            "label": "Parent of Level Dropdown",
+            "name": "parent_of_level_dropdown",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "jobs_category",
+            "field_type": "select",
+            "multiple": 0,
+            "allow_null": 0,
+            "return_format": "id",
+            "add_term": 0,
+            "load_terms": 0,
+            "save_terms": 0
+        },
+        {
+            "key": "field_5863a457e5b2a",
+            "label": "Parent of Contract Dropdown",
+            "name": "parent_of_contract_dropdown",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "jobs_category",
+            "field_type": "select",
+            "multiple": 0,
+            "allow_null": 0,
+            "return_format": "id",
+            "add_term": 0,
+            "load_terms": 0,
+            "save_terms": 0
+        },
+        {
+            "key": "field_5863c73f91399",
+            "label": "Parent of Salary Scale Dropdown",
+            "name": "parent_of_salary_scale_dropdown",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "jobs_category",
+            "field_type": "select",
+            "multiple": 0,
+            "allow_null": 0,
+            "return_format": "id",
+            "add_term": 0,
+            "load_terms": 0,
+            "save_terms": 0
+        },
+        {
+            "key": "field_5863d6668e980",
+            "label": "Parent of Location Dropdown",
+            "name": "parent_of_location_dropdown",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "jobs_category",
+            "field_type": "select",
+            "multiple": 0,
+            "allow_null": 0,
+            "return_format": "id",
+            "add_term": 0,
+            "load_terms": 0,
+            "save_terms": 0
+        },
+        {
+            "key": "field_59f1c2f3e09de",
+            "label": "No jobs found",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_59f1c307e09df",
+            "label": "Nothing Found Title",
+            "name": "no_job_found_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Nothing Found",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_59f1c326e09e0",
+            "label": "Nothing Found Content",
+            "name": "no_job_found_content",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-jobs"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1509016554
+}
