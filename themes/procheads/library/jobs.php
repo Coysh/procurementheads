@@ -421,6 +421,62 @@ function procheads_set_last_viewed_cookie($viewed, $cookie_name){
 function procheads_jobs_listing_shortcode() {
 	ob_start();
 
+	wp_add_inline_style( 'procurement-heads-theme-css', '
+		.jobs__header__filters { margin-bottom: 4rem; }
+		.category-select {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-column-gap: 32px;
+			max-width: 70%;
+		}
+		@media screen and (max-width: 30rem) {
+			.category-select {
+				grid-template-columns: 1fr;
+				width: 100%;
+				max-width: 100%;
+			}
+		}
+		#jobs__main {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-column-gap: 3rem;
+			grid-row-gap: 3rem;
+		}
+		@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+			#jobs__main {
+				grid-template-columns: repeat(2, 1fr);
+				grid-column-gap: 2rem;
+				grid-row-gap: 2rem;
+			}
+		}
+		.job-listing__heading {
+			font-size: 1.5rem;
+			line-height: 2rem;
+			margin-bottom: 1.5rem;
+		}
+		.job-listing__header {
+			background-color: #6baa2d;
+			border-radius: 1rem 1rem 0 0;
+			padding: 1.25rem;
+		}
+		.job-listing__content { padding: 1.25rem; }
+		.job-listing__header h4 {
+			color: #fff;
+			text-transform: uppercase;
+			font-weight: 600;
+			font-size: 1rem;
+			font-family: Montserrat, sans-serif !important;
+			margin-bottom: 0 !important;
+		}
+		.job .job-listing__content .job-listing__salary {
+			font-size: 1.25rem;
+			color: #6baa2d;
+			font-weight: 900;
+			font-family: "Montserrat", sans-serif;
+			margin-bottom: 0;
+		}
+	' );
+
 	$field_names = procheads_job_field_names();
 	?>
 	<div id="job-search" class="jobs__header__filters">
