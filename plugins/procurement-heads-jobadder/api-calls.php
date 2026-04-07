@@ -180,6 +180,7 @@ function jobadder_get_job_details($jobId) {
 			'Authorization' => 'Bearer ' . $access_token,
 			'Content-Type' => 'application/json'
 		],
+		'timeout' => 30,
 	]);
 
 	if (is_wp_error($response)) {
