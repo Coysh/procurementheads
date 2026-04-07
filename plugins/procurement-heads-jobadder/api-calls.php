@@ -173,6 +173,7 @@ function jobadder_get_job_details($jobId) {
 
 	$access_token = get_option('jobadder_access_token'); // Fetch the possibly refreshed token
 	$api_url = 'https://api.jobadder.com/v2/jobs/' . $jobId; // Construct the API endpoint URL for jobs
+	jobadder_log('API call: GET ' . $api_url, 'info');
 
 	$response = wp_remote_get($api_url, [
 		'headers' => [
@@ -186,6 +187,7 @@ function jobadder_get_job_details($jobId) {
 		return [];
 	}
 
+	$status_code = wp_remote_retrieve_response_code($response);
 	$body = wp_remote_retrieve_body($response);
 	$job_details = json_decode($body, true);
 
@@ -196,7 +198,7 @@ function jobadder_get_job_details($jobId) {
 
 	//If empty job details
 	if (empty($job_details)) {
-		jobadder_log('Job details are empty for job: '.$jobId, 'error');
+		jobadder_log('Job details are empty for job: ' . $jobId . ' | HTTP status: ' . $status_code . ' | Raw response: ' . $body, 'error');
 	}
 
 	return $job_details; // Return the job details
