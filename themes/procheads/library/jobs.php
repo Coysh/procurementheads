@@ -478,7 +478,7 @@ function procheads_jobs_listing_shortcode() {
 			margin-bottom: 0;
 		}
 	</style>
-	<?php
+
 	<div id="job-search" class="jobs__header__filters">
 		<div class="row">
 			<form name="jobs-filter" id="category-select" class="category-select js-category-select" action="<?php echo esc_url( get_post_type_archive_link( 'jobs' ) ); ?>#job-search" method="get">
