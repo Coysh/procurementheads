@@ -417,3 +417,63 @@ function procheads_set_last_viewed_cookie($viewed, $cookie_name){
 	$json = json_encode($viewed);
 	setcookie( $cookie_name, $json, strtotime( '+30 days' ), COOKIEPATH, COOKIE_DOMAIN );
 }
+
+function procheads_jobs_listing_shortcode() {
+	ob_start();
+
+	$field_names = procheads_job_field_names();
+	?>
+	<div id="job-search" class="jobs__header__filters">
+		<div class="row">
+			<form name="jobs-filter" id="category-select" class="category-select js-category-select" action="<?php echo esc_url( get_post_type_archive_link( 'jobs' ) ); ?>#job-search" method="get">
+				<?php
+				foreach ( $field_names as $field_name ) {
+					$parent_of_field_name = sprintf( 'parent_of_%s_dropdown', $field_name );
+					$term_ID = get_field( $parent_of_field_name, 'option', false );
+					printf( '<div class="select">%s</div>', procheads_jobs_dropdown( $term_ID, 'js-jobs-filter' ) );
+				}
+				?>
+				<div class="submit-btn">
+					<input class="js-jobs-submit" type="submit" name="job-submit" value="Search" />
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<?php if ( have_posts() ) : ?>
+		<div role="main" class="jobs__main" data-equalizer data-equalize-by-row="true" id="jobs__main">
+			<?php while ( have_posts() ) : the_post(); ?>
+				<?php $data_categories = procheads_get_job_terms( get_the_ID(), ',', true ); ?>
+				<article id="job-<?php the_ID(); ?>" class="job js-job column column-block agl agl-fadeCSSUp" data-category="<?php echo esc_attr( $data_categories ); ?>">
+					<div class="job--border">
+						<div class="job__main" data-equalizer-watch>
+							<?php get_template_part( 'template-parts/content', 'jobs' ); ?>
+						</div>
+					</div>
+				</article>
+			<?php endwhile; ?>
+		</div>
+	<?php else : ?>
+		<div class="jobs__main row jobs__main--none">
+			<div class="column">
+				<?php get_template_part( 'template-parts/content', 'no-jobs' ); ?>
+			</div>
+		</div>
+	<?php endif; ?>
+
+	<div class="row">
+		<?php
+		if ( function_exists( 'procheads_pagination' ) ) :
+			procheads_pagination();
+		elseif ( is_paged() ) :
+		?>
+		<nav id="post-nav">
+			<div class="post-previous"><?php next_posts_link( __( '&larr; Older posts', 'astra' ) ); ?></div>
+			<div class="post-next"><?php previous_posts_link( __( 'Newer posts &rarr;', 'astra' ) ); ?></div>
+		</nav>
+		<?php endif; ?>
+	</div>
+	<?php
+	return ob_get_clean();
+}
+add_shortcode( 'jobs_listing', 'procheads_jobs_listing_shortcode' );
