@@ -421,7 +421,9 @@ function procheads_set_last_viewed_cookie($viewed, $cookie_name){
 function procheads_jobs_listing_shortcode() {
 	ob_start();
 
-	wp_add_inline_style( 'procurement-heads-theme-css', '
+	$field_names = procheads_job_field_names();
+	?>
+	<style>
 		.jobs__header__filters { margin-bottom: 4rem; }
 		.category-select {
 			display: grid;
@@ -472,13 +474,11 @@ function procheads_jobs_listing_shortcode() {
 			font-size: 1.25rem;
 			color: #6baa2d;
 			font-weight: 900;
-			font-family: "Montserrat", sans-serif;
+			font-family: 'Montserrat', sans-serif;
 			margin-bottom: 0;
 		}
-	' );
-
-	$field_names = procheads_job_field_names();
-	?>
+	</style>
+	<?php
 	<div id="job-search" class="jobs__header__filters">
 		<div class="row">
 			<form name="jobs-filter" id="category-select" class="category-select js-category-select" action="<?php echo esc_url( get_post_type_archive_link( 'jobs' ) ); ?>#job-search" method="get">
