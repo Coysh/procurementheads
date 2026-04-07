@@ -1,0 +1,29 @@
+on:
+  push:
+    branches:
+      - main
+name: 🚀 Deploy on push to main
+
+jobs:
+  web-deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v4
+
+      - name: 🔑 Setup SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" | base64 -d > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan ssh.gb.stackcp.com >> ~/.ssh/known_hosts
+
+      - name: 📂 Sync files
+        run: |
+          rsync -e "ssh -p 22 -i ~/.ssh/deploy_key" \
+            --archive --verbose --compress \
+            --exclude='.git*' \
+            --exclude='node_modules/' \
+            --exclude='uploads/' \
+            ./ procurementheads.com@ssh.gb.stackcp.com:public_html/wp-content/
