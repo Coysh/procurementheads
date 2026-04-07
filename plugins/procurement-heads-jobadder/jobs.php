@@ -87,7 +87,8 @@ function update_jobs_from_jobadder() {
 		jobadder_log('-----Start Processing Job-----', 'info');  
 
 		$ad = jobadder_get_job_ad_details($ad['adId']);
-		$job = jobadder_get_job_details($ad['reference']);
+		$job_id = (int) $ad['reference']; // strips ".1", ".12" etc.
+		$job = jobadder_get_job_details($job_id);
 
 		#echo "<pre>Ad:";print_r($ad);echo "\n\n\nJob:";print_r($job);echo "</pre>";
 
