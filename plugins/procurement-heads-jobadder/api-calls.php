@@ -2,7 +2,8 @@
 require_once 'logging.php'; // Include logging functionality
 
 // Ensure the API call prerequisites are met (token validity and refresh if necessary)
-function pre_jobadder_api_call() {
+function pre_jobadder_api_call()
+{
 	$access_token = get_option('jobadder_access_token');
 	if (token_is_expired()) {
 		$refresh_token = get_option('jobadder_refresh_token');
@@ -26,8 +27,10 @@ function pre_jobadder_api_call() {
 }
 
 // Function to retrieve jobs, ensuring token is valid or refreshed if needed
-function jobadder_get_jobs() {
-	if (!pre_jobadder_api_call()) return []; // Pre-check for token validity
+function jobadder_get_jobs()
+{
+	if (!pre_jobadder_api_call())
+		return []; // Pre-check for token validity
 
 	$access_token = get_option('jobadder_access_token'); // Re-fetch in case it was refreshed
 	$api_url = 'https://api.jobadder.com/v2/jobs'; // API endpoint for jobs
@@ -37,6 +40,7 @@ function jobadder_get_jobs() {
 			'Authorization' => 'Bearer ' . $access_token,
 			'Content-Type' => 'application/json'
 		],
+		'timeout' => 30,
 	]);
 
 	if (is_wp_error($response)) {
@@ -56,8 +60,10 @@ function jobadder_get_jobs() {
 }
 
 // Function to retrieve job boards, ensuring token is valid or refreshed if needed
-function jobadder_get_job_boards() {
-	if (!pre_jobadder_api_call()) return []; // Pre-check for token validity
+function jobadder_get_job_boards()
+{
+	if (!pre_jobadder_api_call())
+		return []; // Pre-check for token validity
 
 	$access_token = get_option('jobadder_access_token'); // Re-fetch in case it was refreshed
 	$api_url = 'https://api.jobadder.com/v2/jobboards'; // API endpoint for job boards
@@ -67,6 +73,7 @@ function jobadder_get_job_boards() {
 			'Authorization' => 'Bearer ' . $access_token,
 			'Content-Type' => 'application/json'
 		],
+		'timeout' => 30,
 	]);
 
 	if (is_wp_error($response)) {
@@ -86,18 +93,21 @@ function jobadder_get_job_boards() {
 }
 
 
-function jobadder_get_job_ads_from_board() {
-	if (!pre_jobadder_api_call()) return []; // Ensure the token is valid or refreshed
+function jobadder_get_job_ads_from_board()
+{
+	if (!pre_jobadder_api_call())
+		return []; // Ensure the token is valid or refreshed
 
 	$access_token = get_option('jobadder_access_token'); // Fetch the possibly refreshed token
 	$job_board_id = JOBADDER_JOB_BOARD; // Use the predefined job board ID
-	$api_url = 'https://api.jobadder.com/v2/jobboards/' . $job_board_id .'/ads'; // Construct the API endpoint URL
+	$api_url = 'https://api.jobadder.com/v2/jobboards/' . $job_board_id . '/ads'; // Construct the API endpoint URL
 
 	$response = wp_remote_get($api_url, [
 		'headers' => [
 			'Authorization' => 'Bearer ' . $access_token,
 			'Content-Type' => 'application/json'
 		],
+		'timeout' => 30,
 	]);
 
 	if (is_wp_error($response)) {
@@ -117,9 +127,10 @@ function jobadder_get_job_ads_from_board() {
 }
 
 
-function jobadder_get_job_ad_details($adId) {
-	jobadder_log('Get job ad details for job ad: '.$adId, 'info');
-	
+function jobadder_get_job_ad_details($adId)
+{
+	jobadder_log('Get job ad details for job ad: ' . $adId, 'info');
+
 	if (!pre_jobadder_api_call()) {
 		jobadder_log('Access token invalid or expired, unable to retrieve job ad.', 'error');
 		return []; // Ensure the token is valid or refreshed
@@ -134,10 +145,11 @@ function jobadder_get_job_ad_details($adId) {
 			'Authorization' => 'Bearer ' . $access_token,
 			'Content-Type' => 'application/json'
 		],
+		'timeout' => 30,
 	]);
 
 	//Get status code and response for debugging
-	if ( is_wp_error( $response ) ) {
+	if (is_wp_error($response)) {
 		jobadder_log('Failed to retrieve job ad details: ' . $response->get_error_message(), 'error');
 		return [];
 	}
@@ -157,14 +169,15 @@ function jobadder_get_job_ad_details($adId) {
 
 	//If empty job ad details
 	if (empty($job_ad_details)) {
-		jobadder_log('Job ad details are empty for jobad : '.$adId, 'error');
+		jobadder_log('Job ad details are empty for jobad : ' . $adId, 'error');
 	}
 
 	return $job_ad_details; // Return the job ad details
 }
 
-function jobadder_get_job_details($jobId) {
-	jobadder_log('Get job details for job: '.$jobId, 'info');
+function jobadder_get_job_details($jobId)
+{
+	jobadder_log('Get job details for job: ' . $jobId, 'info');
 
 	if (!pre_jobadder_api_call()) {
 		jobadder_log('Access token invalid or expired, unable to retrieve job details.', 'error');
@@ -208,12 +221,15 @@ function jobadder_get_job_details($jobId) {
 
 
 
-function test() {
+function test()
+{
 	$job_ads = jobadder_get_job_ads_from_board();
 	foreach ($job_ads['items'] as $ad) {
 		//Get job ad
 		$job_ad = jobadder_get_job_ad_details($ad['adId']);
-		echo "<pre>";print_r($job_ad);echo "</pre>";
+		echo "<pre>";
+		print_r($job_ad);
+		echo "</pre>";
 		exit;
 	}
 }
