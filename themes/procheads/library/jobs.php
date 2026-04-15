@@ -671,3 +671,9 @@ function procheads_role_summary_shortcode()
 		return ob_get_clean();
 }
 add_shortcode('role_summary', 'procheads_role_summary_shortcode');
+
+add_action( 'astra_sidebars_before', function() {
+    if ( is_singular('jobs') ) {
+        echo do_shortcode('[role_summary]');
+    }
+});
