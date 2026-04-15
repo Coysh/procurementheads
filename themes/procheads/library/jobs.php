@@ -533,3 +533,141 @@ function procheads_jobs_listing_shortcode() {
 	return ob_get_clean();
 }
 add_shortcode( 'jobs_listing', 'procheads_jobs_listing_shortcode' );
+
+function procheads_role_summary_shortcode()
+{
+	ob_start();
+	?>
+
+		<?php while (have_posts()):
+			the_post(); ?>
+				<?php
+				$team_members = get_field('choose_member');
+				$consultant = ($team_members[0]) ? esc_attr(get_the_title($team_members[0])) : 'na';
+				?>
+		<?php endwhile; ?>
+
+		<div class="role_summary_widget agl agl-fadeCSSUp">
+			<header>
+				<h2><?php echo __("Role Summary", "procheads") ?></h2>
+			</header>
+			<div class="role_info">
+				<?php
+				$job_meta = procheads_get_job_meta(get_the_ID());
+				$salary = (get_field('custom_salary_display')) ? get_field('custom_salary_display') : (isset($job_meta['salary_scale']) ? $job_meta['salary_scale'] : '');
+				$contract = isset($job_meta['contract']) ? $job_meta['contract'] : '';
+				$location = isset($job_meta['location']) ? $job_meta['location'] : '';
+				$level = isset($job_meta['level']) ? $job_meta['level'] : '';
+				?>
+				<dl class="details-list">
+					<?php if ($contract): ?>
+							<dt class="details-list--term">Contract:</dt>
+							<dd class="details-list--def"><?php echo esc_html($contract); ?></dd>
+					<?php endif; ?>
+					<?php if ($location): ?>
+							<dt class="details-list--term">Location:</dt>
+							<dd class="details-list--def"><?php echo esc_html($location); ?></dd>
+					<?php endif; ?>
+					<?php if ($level): ?>
+							<dt class="details-list--term">Level:</dt>
+							<dd class="details-list--def"><?php echo esc_html($level); ?></dd>
+					<?php endif; ?>
+					<?php if ($salary): ?>
+							<dt class="details-list--term">Salary:</dt>
+							<dd class="details-list--def"><h3><?php echo esc_html($salary); ?></h3></dd>
+					<?php endif; ?>
+				</dl>
+				<button class="button open-button">Apply for this role now</button>
+				<dialog class="modal" id="modal">
+					<iframe src="<?php echo get_field('apply_url'); ?>" width="600" height="1200" style="width:100%;border:0;"></iframe>
+					<button class="button close-button">Close pop-up</button>
+				</dialog>
+			</div>
+		</div><!-- .role_summary_widget -->
+
+		<?php if ($team_members): ?>
+				<?php foreach ($team_members as $team_member): ?>
+						<div class="your_consultant_widget agl agl-fadeCSSUp">
+							<header>
+								<h2><?php echo __("Your Consultant", "procheads") ?></h2>
+							</header>
+							<div class="consultant_info">
+								<div class="consultant_profile">
+									<div class="consultant_image">
+										<?php
+										$thumb_image_url = wp_get_attachment_image_src(get_post_thumbnail_id($team_member), 'thumbnail');
+										if (!empty($thumb_image_url[0])): ?>
+												<img src="<?php echo esc_url($thumb_image_url[0]); ?>" class="job__role-portrait">
+										<?php endif; ?>
+									</div>
+									<div class="consultant_name">
+										<h3><?php echo get_the_title($team_member); ?></h3>
+										<?php if (get_field('tm_job_title', $team_member)): ?>
+												<h4><?php echo get_field('tm_job_title', $team_member); ?></h4>
+										<?php endif; ?>
+									</div>
+								</div>
+
+								<?php
+								$user_display_email = get_field('tm_email', $team_member);
+								$user_contact_number = get_field('tm_phone', $team_member);
+								$user_linkedin_url = get_field('tm_linked_in', $team_member);
+								?>
+								<ul class="contact-list">
+									<?php if ($user_contact_number): ?>
+											<li>
+												<svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20 22.621l-3.521-6.795c-.008.004-1.974.97-2.064 1.011-2.24 1.086-6.799-7.82-4.609-8.994l2.083-1.026-3.493-6.817-2.106 1.039c-7.202 3.755 4.233 25.982 11.6 22.615.121-.055 2.102-1.029 2.11-1.033z"/></svg>
+												<a href="tel:<?php echo esc_attr($user_contact_number); ?>"><?php echo esc_html($user_contact_number); ?></a>
+											</li>
+									<?php endif; ?>
+									<?php if ($user_display_email): ?>
+											<li>
+												<svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12.042 23.648c-7.813 0-12.042-4.876-12.042-11.171 0-6.727 4.762-12.125 13.276-12.125 6.214 0 10.724 4.038 10.724 9.601 0 8.712-10.33 11.012-9.812 6.042-.71 1.108-1.854 2.354-4.053 2.354-2.516 0-4.08-1.842-4.08-4.807 0-4.444 2.921-8.199 6.379-8.199 1.659 0 2.8.876 3.277 2.221l.464-1.632h2.338c-.244.832-2.321 8.527-2.321 8.527-.648 2.666 1.35 2.713 3.122 1.297 3.329-2.58 3.501-9.327-.998-12.141-4.821-2.891-15.795-1.102-15.795 8.693 0 5.611 3.95 9.381 9.829 9.381 3.436 0 5.542-.93 7.295-1.948l1.177 1.698c-1.711.966-4.461 2.209-8.78 2.209zm-2.344-14.305c-.715 1.34-1.177 3.076-1.177 4.424 0 3.61 3.522 3.633 5.252.239.712-1.394 1.171-3.171 1.171-4.529 0-2.917-3.495-3.434-5.246-.134z"/></svg>
+												<a href="mailto:<?php echo esc_attr($user_display_email); ?>"><?php echo esc_html($user_display_email); ?></a>
+											</li>
+									<?php endif; ?>
+									<?php if ($user_linkedin_url): ?>
+											<li>
+												<svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/></svg>
+												<a href="<?php echo esc_url($user_linkedin_url); ?>" target="_blank">Connect with me on LinkedIn</a>
+											</li>
+									<?php endif; ?>
+								</ul>
+							</div>
+						</div>
+				<?php endforeach; ?>
+		<?php endif; ?>
+
+		<style>
+			.modal {
+				max-width: 66ch;
+			}
+			.modal > * {
+				margin: 0 0 0.5rem 0;
+			}
+			.modal::-webkit-backdrop {
+				background: rgba(0, 0, 0, 0.4);
+			}
+			.modal::backdrop {
+				background: rgba(0, 0, 0, 0.4);
+			}
+		</style>
+
+		<script>
+			const modal = document.querySelector("#modal");
+			const openModal = document.querySelector(".open-button");
+			const closeModal = document.querySelector(".close-button");
+
+			openModal.addEventListener("click", () => {
+				modal.showModal();
+			});
+
+			closeModal.addEventListener("click", () => {
+				modal.close();
+			});
+		</script>
+
+		<?php
+		return ob_get_clean();
+}
+add_shortcode('role_summary', 'procheads_role_summary_shortcode');
