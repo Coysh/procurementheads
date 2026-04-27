@@ -64,3 +64,23 @@ function procheads_team_post_type() {
 }
 add_action( 'init', 'procheads_team_post_type', 0 );
 
+function procheads_team_member_shortcode()
+{
+	ob_start();
+	?>
+		<?php if ( has_post_thumbnail() ) : ?>
+			<div class="single__featured-image">
+				<?php the_post_thumbnail(); ?>
+			</div>
+		<?php endif; ?>
+		<header class="single__header">
+			<h2 class="heading heading--team"><?php the_title(); ?></h2>
+			<?php if ( get_field('tm_job_title') ) : ?>
+				<h3 class="heading heading--team-sub"><?php echo esc_html( get_field('tm_job_title') ); ?></h3>
+			<?php endif; ?>
+		</header>
+	<?php
+	return ob_get_clean();
+}
+add_shortcode('team_member', 'procheads_team_member_shortcode');
+
