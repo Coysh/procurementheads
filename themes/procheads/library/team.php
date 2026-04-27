@@ -86,3 +86,9 @@ function procheads_team_member_shortcode()
 }
 add_shortcode('team_member', 'procheads_team_member_shortcode');
 
+add_action( 'astra_sidebars_before', function () {
+	if ( is_singular( 'team' ) ) {
+		echo do_shortcode( '[team_member]' );
+	}
+} );
+
