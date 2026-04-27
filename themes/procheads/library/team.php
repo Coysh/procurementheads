@@ -68,15 +68,17 @@ function procheads_team_member_shortcode()
 {
 	ob_start();
 	?>
-		<?php if ( has_post_thumbnail() ) : ?>
-			<div class="single__featured-image">
+		<div class="single__featured-image">
+			<?php if ( has_post_thumbnail() ) : ?>
 				<?php the_post_thumbnail(); ?>
-			</div>
-		<?php endif; ?>
+			<?php else : ?>
+				<img src="<?php echo esc_url( get_template_directory_uri() . '/images/placeholder.jpg' ); ?>" alt="Placeholder Image" />
+			<?php endif; ?>
+		</div>
 		<header class="single__header">
-			<h2 class="heading heading--team"><?php the_title(); ?></h2>
+			<h2 class="heading heading--team" style="margin: 1rem 0;"><?php the_title(); ?></h2>
 			<?php if ( get_field('tm_job_title') ) : ?>
-				<h3 class="heading heading--team-sub"><?php echo esc_html( get_field('tm_job_title') ); ?></h3>
+				<h5 class="heading heading--team-sub"><?php echo esc_html( get_field('tm_job_title') ); ?></h5>
 			<?php endif; ?>
 		</header>
 	<?php
